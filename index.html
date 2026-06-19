@@ -1,421 +1,672 @@
+<!DOCTYPE html>
 <html lang="en">
-   <head>
-      <title>Kaushal Dhakal</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-      <meta name="keywords" content="Easy Resume Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design">
-      <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script> <!-- Custom Theme files --> 
-      <script src="./indexjs.js"> </script>
-      <link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
-      <link href="css/style.css" type="text/css" rel="stylesheet" media="all">
-      <link rel="stylesheet" href="css/lightbox.css">
-      <!-- //Custom Theme files --> <!-- js --> <script src="js/jquery-2.2.3.min.js"></script> <!-- //js --> <!-- web-fonts --> 
-      <link href="//fonts.googleapis.com/css?family=Text+Me+One" rel="stylesheet" type="text/css">
-      <link href="//fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css">
-      <!-- //web-fonts --> 
-   </head>
-   <body class="">
-      <!-- top-nav --> 
-      <div class="top-nav">
-         <div class="container">
-            <div class="navbar-header logo"> <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> Menu </button> </div>
-            <!-- Collect the nav links, forms, and other content for toggling --> 
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-               <div class="menu">
-                  <ul class="nav navbar">
-                     <li><a href="index.html" class="w3ls-hover"><span data-letters="Home">Home</span></a></li>
-                     <li><a href="#" data-toggle="modal" data-target="#about" class="w3ls-hover"><span data-letters="About">About </span></a></li>
-                     <li><a href="#" data-toggle="modal" data-target="#skill" class="w3ls-hover"><span data-letters="Skills">Skills</span></a></li>
-                     <li><a href="#" data-toggle="modal" data-target="#experience" class="w3ls-hover"><span data-letters="Experience">Experience </span></a></li>
-                     <li><a href="#" data-toggle="modal" data-target="#education" class="w3ls-hover"><span data-letters="Education">Education </span></a></li>
-                     <li><a href="#" data-toggle="modal" data-target="#work" class="w3ls-hover"><span data-letters="Work">Work</span></a></li>
-                     <li><a href="#" data-toggle="modal" data-target="#contact" class="w3ls-hover"><span data-letters="Contact">Contact </span></a></li>
-                     <!-- <li><a data-toggle="modal" data-target="#resume" class="w3ls-icon" href="#"><span class="glyphicon glyphicon-save">Resume</span></a></li> -->
-                  </ul>
-                  <div class="clearfix"> </div>
-               </div>
-            </div>
-         </div>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kaushal Dhakal — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0D1117;
+    --navy-2: #161B22;
+    --navy-3: #21262D;
+    --teal: #2DD4BF;
+    --teal-dim: #14857A;
+    --text: #E6EDF3;
+    --text-muted: #8B949E;
+    --text-dim: #6E7681;
+    --border: rgba(48,54,61,0.8);
+    --mono: 'JetBrains Mono', monospace;
+    --sans: 'Inter', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--navy);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(13,17,23,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    height: 56px;
+  }
+
+  .nav-logo {
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--teal);
+    letter-spacing: 0.05em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-family: var(--mono);
+    letter-spacing: 0.03em;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--teal); }
+
+  section { padding: 5rem 2rem; max-width: 860px; margin: 0 auto; }
+
+  .hero {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .hero-label {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--teal);
+    letter-spacing: 0.12em;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .hero-label::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 1px;
+    background: var(--teal);
+  }
+
+  h1 {
+    font-size: clamp(2.4rem, 6vw, 3.8rem);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 0.25rem;
+    color: var(--text);
+  }
+
+  .hero-subtitle {
+    font-family: var(--mono);
+    font-size: clamp(1rem, 2.5vw, 1.35rem);
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .typed-text { color: var(--teal); }
+  .cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.2em;
+    background: var(--teal);
+    animation: blink 1s step-end infinite;
+    vertical-align: middle;
+  }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+  .hero-desc {
+    font-size: 16px;
+    color: var(--text-muted);
+    max-width: 520px;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    font-family: var(--mono);
+    font-size: 13px;
+    padding: 10px 22px;
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid;
+    letter-spacing: 0.03em;
+  }
+
+  .btn-primary {
+    background: var(--teal);
+    border-color: var(--teal);
+    color: var(--navy);
+    font-weight: 500;
+  }
+
+  .btn-primary:hover { background: #5eead4; border-color: #5eead4; }
+
+  .btn-outline {
+    background: transparent;
+    border-color: var(--border);
+    color: var(--text-muted);
+  }
+
+  .btn-outline:hover { border-color: var(--teal); color: var(--teal); }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--teal);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 3rem;
+    color: var(--text);
+    padding-bottom: 1rem;
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 0.5px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .skill-group {
+    background: var(--navy-2);
+    padding: 1.5rem;
+  }
+
+  .skill-group-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--teal);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .tag {
+    font-family: var(--mono);
+    font-size: 12px;
+    padding: 3px 10px;
+    border-radius: 4px;
+    background: var(--navy-3);
+    color: var(--text-muted);
+    border: 0.5px solid var(--border);
+    white-space: nowrap;
+  }
+
+  .tag:hover { border-color: var(--teal-dim); color: var(--text); }
+
+  .timeline {
+    position: relative;
+    padding-left: 1.5rem;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    bottom: 8px;
+    width: 0.5px;
+    background: var(--border);
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+    padding-left: 1.5rem;
+  }
+
+  .timeline-item:last-child { margin-bottom: 0; }
+
+  .timeline-dot {
+    position: absolute;
+    left: -1.5rem;
+    top: 8px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--teal);
+    transform: translateX(-3px);
+  }
+
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .exp-role {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .exp-date {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-dim);
+    white-space: nowrap;
+  }
+
+  .exp-company {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--teal);
+    margin-bottom: 0.8rem;
+  }
+
+  .exp-bullets {
+    list-style: none;
+    padding: 0;
+  }
+
+  .exp-bullets li {
+    font-size: 14px;
+    color: var(--text-muted);
+    padding: 0.2rem 0;
+    display: flex;
+    gap: 8px;
+    line-height: 1.6;
+  }
+
+  .exp-bullets li::before {
+    content: '▸';
+    color: var(--teal);
+    flex-shrink: 0;
+    margin-top: 1px;
+    font-size: 12px;
+  }
+
+  .exp-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 0.8rem;
+  }
+
+  .edu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+
+  .edu-card {
+    background: var(--navy-2);
+    border: 0.5px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: border-color 0.2s;
+  }
+
+  .edu-card:hover { border-color: var(--teal-dim); }
+
+  .edu-degree {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+  }
+
+  .edu-school {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .edu-badge {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--teal);
+    background: rgba(45,212,191,0.08);
+    border: 0.5px solid rgba(45,212,191,0.25);
+    padding: 2px 10px;
+    border-radius: 4px;
+  }
+
+  .contact-card {
+    background: var(--navy-2);
+    border: 0.5px solid var(--border);
+    border-radius: 12px;
+    padding: 2.5rem;
+    text-align: center;
+  }
+
+  .contact-card p {
+    color: var(--text-muted);
+    max-width: 420px;
+    margin: 0.8rem auto 2rem;
+    font-size: 15px;
+  }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+
+  .contact-link {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--text-muted);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border: 0.5px solid var(--border);
+    border-radius: 6px;
+    transition: all 0.2s;
+  }
+
+  .contact-link:hover { color: var(--teal); border-color: var(--teal-dim); }
+
+  .contact-icon {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+  }
+
+  footer {
+    text-align: center;
+    padding: 2rem;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-dim);
+    border-top: 0.5px solid var(--border);
+  }
+
+  @media (max-width: 600px) {
+    nav { padding: 0 1rem; }
+    .nav-links { display: none; }
+    section { padding: 3rem 1.25rem; }
+    .hero { min-height: auto; padding-top: 3rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">Kaushal</span>
+  <ul class="nav-links">
+    <li><a href="#skills">skills</a></li>
+    <li><a href="#experience">work</a></li>
+    <li><a href="#education">education</a></li>
+    <li><a href="#contact">contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-label">Full-Stack Software Engineer</div>
+  <h1>Kaushal Dhakal</h1>
+  <div class="hero-subtitle">
+    <span class="typed-text" id="typed"></span><span class="cursor"></span>
+  </div>
+  <p class="hero-desc">
+    5+ years building scalable web applications for international clients. Specialising in microfrontend architecture, cloud-native platforms, and performance-critical React & Node.js systems. Currently pursuing a Master's in Computational Science at Laurentian University.
+  </p>
+  <div class="hero-actions">
+    <a href="#experience" class="btn btn-primary">View my work</a>
+    <a href="#contact" class="btn btn-outline">Get in touch</a>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="section-label">// 01</div>
+  <h2>Technical stack</h2>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <div class="skill-group-label">Frontend</div>
+      <div class="skill-tags">
+        <span class="tag">React</span>
+        <span class="tag">Next.js 14</span>
+        <span class="tag">TypeScript</span>
+        <span class="tag">Redux</span>
+        <span class="tag">React Query</span>
+        <span class="tag">WebSockets</span>
+        <span class="tag">WebRTC</span>
       </div>
-      <!-- //top-nav --> <!-- banner --> 
-      <div class="video" data-vide-bg="video/cv" style="position: relative;">
-         <!-- <div style="position: absolute; z-index: -1; inset: 0px; overflow: hidden; background-size: cover; background-repeat: no-repeat; background-position: 50% 50%;">
-            <video autoplay="" loop="" style="margin: auto; position: absolute; z-index: -1; top: 50%; left: 50%; transform: translate(-50%, -50%); visibility: hidden; width: auto; height: 763px;">
-               <source src="./video/cv.jpg" type="video/mp4">
-               <source src="./video/cv.jpg" type="video/webm">
-               <source src="./video/cv.jpg" type="video/ogg">
-            </video>
-         </div> -->
-         <div class="container">
-            <div class="banner-text agileinfo-text">
-               <h1>Kaushal Dhakal</h1>
-               <h6>Software Engineer(React/Node)</h6>
-            </div>
-         </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-label">Backend</div>
+      <div class="skill-tags">
+        <span class="tag">Node.js</span>
+        <span class="tag">NestJS</span>
+        <span class="tag">Express</span>
+        <span class="tag">Socket.io</span>
+        <span class="tag">REST APIs</span>
       </div>
-      <script src="js/jquery.vide.min.js"></script> <!-- //banner --> <!-- modal-about --> 
-      <div class="modal fade modal-about" id="about" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
-         <div class="modal-dialog" role="document">
-            <div class="modal-content">
-               <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button> 
-                  <h4 class="modal-title">ABOUT ME</h4>
-               </div>
-               <div class="modal-body modal-spa">
-                  <div class="about">
-                     <div class="col-md-4 about-left "> <img src="./images/img1.jpg" class="img-responsive img-rounded" alt=""> </div>
-                     <div class="col-md-8 about-right wthree">
-                        <h3>Hi, i'm <span>Kaushal Dhakal </span></h3>
-                        <h4>Software Engineer </h4>
-                        <ul class="address">
-                           <li>
-                              <ul class="agileits-address-text">
-                                 <li><b>ADDRESS </b></li>
-                                 <li>Sudbury, Ontario Canada</li>
-                              </ul>
-                           </li>
-                           <li>
-                              <ul class="agileits-address-text">
-                                 <li><b>E-MAIL </b></li>
-                                 <li><a href="mailto:example@mail.com"> kaushaldhakal40@gmail.com</a></li>
-                              </ul>
-                           </li>
-                           <li>
-                              <ul class="agileits-address-text">
-                                 <li><b>Websites </b></li>
-                                 <li><a href="https://www.linkedin.com/in/kaushal-dhakal-53b067239/">LinkedLn</a></li>
-                                 <li><a href="https://github.com/KaushalDhakal0">GitHub</a></li>
-                                 <li><a href="https://medium.com/@kaushaldhakal40">Medium</a></li>
-                              </ul>
-                           </li>
-                        </ul>
-                     </div>
-                     <div class="clearfix"> </div>
-                     <div class="about-text agileits-w3layouts">
-                        <p>I am a  Software Engineer specializing in React.js and Node.js. With a strong foundation in JavaScript, problem-solving abilities, and a constant desire to learn and grow, I have successfully worked on diverse projects. Using React.js, Node.js, and JavaScript, I develop responsive web applications with reusable components, efficient backend systems, and seamless communication.</p>
-                        <p class="agile-br"> I stay updated with the latest trends and technologies, adapt quickly, and thrive in collaborative environments.</p>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-label">Data & Cloud</div>
+      <div class="skill-tags">
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">Drizzle ORM</span>
+        <span class="tag">Docker</span>
+        <span class="tag">Google Cloud</span>
+        <span class="tag">CI/CD</span>
       </div>
-      <!-- //modal-about --> <!-- modal-skills --> 
-      <div class="modal fade modal-skills" id="skill" tabindex="-1" role="dialog">
-         <div class="modal-dialog" role="document">
-            <div class="modal-content">
-               <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button> 
-                  <h4 class="modal-title">My Skills</h4>
-               </div>
-               <div class="modal-body modal-spa">
-                  <div class="skills">
-                     <div class="col-md-6 bar-grids">
-                        <h4><span class="glyphicon glyphicon-cog"></span> Technical Skills </h4>
-                        <h6>React Js </h6>
-                        <div class="progress">
-                           <div class="progress-bar progress-bar-striped active" style="width: 75%"> </div>
-                        </div>
-                        <h6>Node Js <span> 75% </span></h6>
-                        <div class="progress  w3-agile">
-                           <div class="progress-bar progress-bar-striped active" style="width: 75%"> </div>
-                        </div>
-                        <h6>Javascript</h6>
-                        <div class="progress  w3-agile">
-                           <div class="progress-bar progress-bar-striped active" style="width: 90%"> </div>
-                        </div>
-                        <h6>CSS </h6>
-                        <div class="progress  w3-agile">
-                           <div class="progress-bar progress-bar-striped active" style="width: 70%"> </div>
-                        </div>
-                        <h6>HTML </h6>
-                        <div class="progress  w3-agile">
-                           <div class="progress-bar progress-bar-striped active" style="width: 95%"> </div>
-                        </div>
-                        <h6>Rest API </h6>
-                        <div class="progress  w3-agile">
-                           <div class="progress-bar progress-bar-striped active" style="width: 80%"> </div>
-                        </div>
-                        <h6>Security </h6>
-                        <div class="progress  w3-agile">
-                           <div class="progress-bar progress-bar-striped active" style="width: 50%"> </div>
-                        </div>
-                        <h6>Java </h6>
-                        <div class="progress  w3-agile">
-                           <div class="progress-bar progress-bar-striped active" style="width: 45%"> </div>
-                        </div>
-                        <h6>SQL </h6>
-                        <div class="progress  w3-agile">
-                           <div class="progress-bar progress-bar-striped active" style="width: 50%"> </div>
-                        </div>
-                     </div>
-                     <div class="col-md-6 bar-grids  w3-agile">
-                        <h4><span class="glyphicon glyphicon-briefcase"></span> Professional Skills </h4>
-                        <h6>Communication</h6>
-                        <div class="progress">
-                           <div class="progress-bar progress-bar-striped active" style="width: 85%"> </div>
-                        </div>
-                        <h6>Leadership</h6>
-                        <div class="progress">
-                           <div class="progress-bar progress-bar-striped active" style="width: 90%"> </div>
-                        </div>
-                        <h6>Confidence</h6>
-                        <div class="progress prgs-w3agile-last">
-                           <div class="progress-bar progress-bar-striped active" style="width: 86%"> </div>
-                        </div>
-                     </div>
-                     <div class="clearfix"> </div>
-                  </div>
-               </div>
-            </div>
-         </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-label">Tooling</div>
+      <div class="skill-tags">
+        <span class="tag">Git</span>
+        <span class="tag">Sentry</span>
+        <span class="tag">Jira</span>
+        <span class="tag">Plaid API</span>
+        <span class="tag">Microfrontends</span>
       </div>
-      <!-- //modal-skills --> <!-- modal-experience --> 
-      <div class="modal fade modal-experience" id="experience" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
-         <div class="modal-dialog" role="document">
-            <div class="modal-content">
-               <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button> 
-                  <h4 class="modal-title">My Experience</h4>
-               </div>
-               <div class="modal-body modal-spa">
-                  <div class="experience w3-agileits-info">
-                     <div class="experience-grids">
-                        <div class="experience-left">
-                           <h3>2022-Apr - Now </h3>
-                           <h5>General Technology</h5>
-                        </div>
-                        <div class="experience-right">
-                           <h4>Software Engineer</h4>
-                           <p>During my time at General Technology, I implemented the MVC pattern for a structured architecture, developed efficient and secure APIs for seamless data communication, and contributed reusable React components to the company's repository. I integrated Active Directory for authentication management and optimized SQL queries to significantly reduce execution time. I successfully handled projects with complex hierarchies and permissions, resolving vulnerabilities identified in the VAPT report. Notably, I created a code editor within the application to customize forms for the customer portal without altering the React and Node codebase. Additionally, I mentored interns and actively collaborated with teams in an agile environment. I gathered client requirements and implemented them into the codebase, ensuring effective communication and project delivery.</p>
-                        </div>
-                        <div class="clearfix"> </div>
-                     </div>
-                     <div class="experience-grids experience-grids-btm">
-                        <div class="experience-left">
-                           <h3>2020-Nov - 2021-Dec</h3>
-                           <h5>Ansu Tech</h5>
-                        </div>
-                        <div class="experience-right">
-                           <h4>Associate Software Engineer</h4>
-                           <p>I took on the responsibility of developing a dashboard panel using React.js and visualized datas using Charts and Graphs. I converted class components to functional components and optimized the application's performance by utilizing useMemo and useCallback hooks. Additionally, I developed custom hooks and built reusable components to enhance code reusability. On the backend, I created APIs using Node.js, while leveraging Redux for efficient state management.</p>
-                        </div>
-                        <div class="clearfix"> </div>
-                     </div>
-                     <div class="experience-grids w3-agileits">
-                        <div class="experience-left">
-                           <h3>2020-Aug - 2020-Nov</h3>
-                           <h5>Ansu Tech </h5>
-                        </div>
-                        <div class="experience-right">
-                           <h4>Internship Trainee</h4>
-                           <p>During my internship as a trainee, I gained hands-on experience in React.js, building custom and reusable components, and successfully translating design prototypes into functional code.</p>
-                        </div>
-                        <div class="clearfix"> </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="section-label">// 02</div>
+  <h2>Work experience</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="exp-header">
+        <span class="exp-role">Software Engineer</span>
+        <span class="exp-date">Aug 2024 — Present</span>
       </div>
-      <!-- //modal-experience --> <!-- modal-education --> 
-      <div class="modal fade modal-experience" id="education" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
-         <div class="modal-dialog" role="document">
-            <div class="modal-content">
-               <div class="modal-header w3layouts">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button> 
-                  <h4 class="modal-title">My Qualification</h4>
-               </div>
-               <div class="modal-body modal-spa">
-                  <div class="experience">
-                     <div class="experience-grids">
-                        <div class="experience-left">
-                           <h3>2016 - 2020 </h3>
-                           <h5> Kathmandu University</h5>
-                        </div>
-                        <div class="experience-right">
-                           <h4>Computer Engineering(GPA: 3.17/4)</h4>
-                           <p>Major courses taken : Data Structures and Algorithm, Algorithms and Complexity, Probability and Statistics, Microprocessors and Assembly language, Mathematics, Project Management</p>
-                        </div>
-                        <div class="clearfix"> </div>
-                     </div>
-                     <div class="experience-grids experience-grids-btm">
-                        <div class="experience-left">
-                           <h3>2013-2015</h3>
-                           <h5>Capital College and Research Center</h5>
-                        </div>
-                        <div class="experience-right">
-                           <h4>+2 Science(Grade : 81.8%)</h4>
-                           <p>Courses Taken : Physics, Mathematics, Computer and Programming</p>
-                        </div>
-                        <div class="clearfix"> </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
+      <div class="exp-company">Maitri Holdings Services Pvt. Ltd.</div>
+      <ul class="exp-bullets">
+        <li>Led development of a microservices-based financial platform with Next.js, NestJS, PostgreSQL, and Docker.</li>
+        <li>Integrated Plaid APIs for secure financial account aggregation and transaction management.</li>
+        <li>Implemented CI/CD pipelines via Google Cloud Build and monitoring with Sentry.</li>
+        <li>Collaborated directly with U.S.-based stakeholders; conducted code reviews and maintained technical docs.</li>
+      </ul>
+      <div class="exp-tags">
+        <span class="tag">Next.js 14</span><span class="tag">NestJS</span><span class="tag">PostgreSQL</span><span class="tag">Plaid</span><span class="tag">Docker</span><span class="tag">GCP</span>
       </div>
-      <!-- //modal-education --> <!-- modal-gallery --> 
-      <div class="modal fade modal-gallery" id="work" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
-         <div class="modal-dialog" role="document">
-            <div class="modal-content">
-               <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button> 
-                  <h4 class="modal-title">My Work</h4>
-               </div>
-               <div class="modal-body modal-spa">
-                  <div class="gallery">
-                     <div class="gallery-row">
-                        <div class="col-md-4 gallery-grids">
-                           <div class="gallery-w3ls-hover">
-                              <a href="images/g1.jpg" data-lightbox="example-set" data-title="Lorem Ipsum is simply dummy the when an unknown galley">
-                                 <img src="images/g1.jpg" class="img-responsive zoom-img" alt=""> 
-                                 <div class="view-caption">
-                                    <h5>View+</h5>
-                                 </div>
-                              </a>
-                           </div>
-                        </div>
-                        <div class="col-md-4 gallery-grids">
-                           <div class="gallery-w3ls-hover">
-                              <a href="images/g2.jpg" data-lightbox="example-set" data-title="Sed ut perspiciatis unde omnis iste natus error sit">
-                                 <img src="images/g2.jpg" class="img-responsive zoom-img" alt=""> 
-                                 <div class="view-caption">
-                                    <h5>View+</h5>
-                                 </div>
-                              </a>
-                           </div>
-                        </div>
-                        <div class="col-md-4 gallery-grids">
-                           <div class="gallery-w3ls-hover">
-                              <a href="images/g3.jpg" data-lightbox="example-set" data-title="Eaque ipsa quae ab illo inventore veritatis et quasi">
-                                 <img src="images/g3.jpg" class="img-responsive zoom-img" alt=""> 
-                                 <div class="view-caption">
-                                    <h5>View+</h5>
-                                 </div>
-                              </a>
-                           </div>
-                        </div>
-                        <div class="col-md-4 gallery-grids">
-                           <div class="gallery-w3ls-hover">
-                              <a href="images/g4.jpg" data-lightbox="example-set" data-title="Lorem Ipsum is simply dummy the when an unknown galley">
-                                 <img src="images/g4.jpg" class="img-responsive zoom-img" alt=""> 
-                                 <div class="view-caption">
-                                    <h5>View+</h5>
-                                 </div>
-                              </a>
-                           </div>
-                        </div>
-                        <div class="col-md-4 gallery-grids">
-                           <div class="gallery-w3ls-hover">
-                              <a href="images/g5.jpg" data-lightbox="example-set" data-title="Sed ut perspiciatis unde omnis iste natus error sit">
-                                 <img src="images/g5.jpg" class="img-responsive zoom-img" alt=""> 
-                                 <div class="view-caption">
-                                    <h5>View+</h5>
-                                 </div>
-                              </a>
-                           </div>
-                        </div>
-                        <div class="col-md-4 gallery-grids">
-                           <div class="gallery-w3ls-hover">
-                              <a href="images/g6.jpg" data-lightbox="example-set" data-title="Lorem Ipsum is simply dummy the when an unknown galley">
-                                 <img src="images/g6.jpg" class="img-responsive zoom-img" alt=""> 
-                                 <div class="view-caption">
-                                    <h5>View+</h5>
-                                 </div>
-                              </a>
-                           </div>
-                        </div>
-                        <div class="col-md-4 gallery-grids">
-                           <div class="gallery-w3ls-hover">
-                              <a href="images/g3.jpg" data-lightbox="example-set" data-title="Sed ut perspiciatis unde omnis iste natus error sit">
-                                 <img src="images/g3.jpg" class="img-responsive zoom-img" alt=""> 
-                                 <div class="view-caption">
-                                    <h5>View+</h5>
-                                 </div>
-                              </a>
-                           </div>
-                        </div>
-                        <div class="col-md-4 gallery-grids">
-                           <div class="gallery-w3ls-hover">
-                              <a href="images/g1.jpg" data-lightbox="example-set" data-title="Eaque ipsa quae ab illo inventore veritatis et quasi">
-                                 <img src="images/g1.jpg" class="img-responsive zoom-img" alt=""> 
-                                 <div class="view-caption">
-                                    <h5>View+</h5>
-                                 </div>
-                              </a>
-                           </div>
-                        </div>
-                        <div class="col-md-4 gallery-grids">
-                           <div class="gallery-w3ls-hover">
-                              <a href="images/g2.jpg" data-lightbox="example-set" data-title="Lorem Ipsum is simply dummy the when an unknown galley">
-                                 <img src="images/g2.jpg" class="img-responsive zoom-img" alt=""> 
-                                 <div class="view-caption">
-                                    <h5>View+</h5>
-                                 </div>
-                              </a>
-                           </div>
-                        </div>
-                        <div class="clearfix"> </div>
-                     </div>
-                     <!--  light box js --> <script src="js/lightbox-plus-jquery.min.js"> </script> <!-- //light box js--> 
-                  </div>
-               </div>
-            </div>
-         </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="exp-header">
+        <span class="exp-role">Front-End Engineer</span>
+        <span class="exp-date">Aug 2023 — Jul 2024</span>
       </div>
-      <div id="lightboxOverlay" class="lightboxOverlay" style="display: none;"></div>
-      <div id="lightbox" class="lightbox" style="display: none;">
-         <div class="lb-outerContainer">
-            <div class="lb-container">
-               <img class="lb-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
-               <div class="lb-nav"><a class="lb-prev" href=""></a><a class="lb-next" href=""></a></div>
-               <div class="lb-loader"><a class="lb-cancel"></a></div>
-            </div>
-         </div>
-         <div class="lb-dataContainer">
-            <div class="lb-data">
-               <div class="lb-details"><span class="lb-caption"></span><span class="lb-number"></span></div>
-               <div class="lb-closeContainer"><a class="lb-close"></a></div>
-            </div>
-         </div>
+      <div class="exp-company">IDenTV</div>
+      <ul class="exp-bullets">
+        <li>Developed and maintained multiple React microfrontends serving thousands of users.</li>
+        <li>Reduced frontend bundle size by 75% through targeted optimisation techniques.</li>
+        <li>Designed a real-time activity tracking system using WebSockets.</li>
+        <li>Integrated WebRTC and implemented object/facial detection bounding boxes.</li>
+      </ul>
+      <div class="exp-tags">
+        <span class="tag">React</span><span class="tag">Microfrontends</span><span class="tag">WebSockets</span><span class="tag">WebRTC</span>
       </div>
-      <!-- //modal-gallery --> <!-- modal-contact --> 
-      <div class="modal fade modal-contact" id="contact" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
-         <div class="modal-dialog" role="document">
-            <div class="modal-content">
-               <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button> 
-                  <h4 class="modal-title">Get In Touch</h4>
-               </div>
-               <div class="modal-body modal-spa">
-                  <div class="contact">
-                     <div class="contact-w3lsrow">
-                        <div class="col-md-6 contact-left w3-agileits">
-                           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.4563440342334!2d85.32406221441667!3d27.717245083796064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb186d7651d9e7%3A0x565e90becc9b2b6f!2sKathmandu%2044600%2C%20Nepal!5e0!3m2!1sen!2sin!4v1441710758555" allowfullscreen=""></iframe> <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.9503398796587!2d-73.9940307!3d40.719109700000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a27e2f24131%3A0x64ffc98d24069f02!2sCANADA!5e0!3m2!1sen!2sin!4v1441710758555" allowfullscreen></iframe> --> 
-                        </div>
-                        <div class="col-md-6 contact-right">
-                           <form action="#" method="post">
-                              <div class="styled-input agile-styled-input-top"> <input type="text" name="Name" required=""> <label>Name</label> <span></span> </div>
-                              <div class="styled-input"> <input type="text" name="Email" required=""> <label>Email</label> <span></span> </div>
-                              <div class="styled-input"> <input type="text" name="Subject" required=""> <label>Subject</label> <span></span> </div>
-                              <div class="styled-input"> <textarea name="Message" required=""></textarea> <label>Message</label> <span></span> </div>
-                              <input type="submit" value="SEND"> 
-                           </form>
-                        </div>
-                        <div class="clearfix"> </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="exp-header">
+        <span class="exp-role">Software Engineer</span>
+        <span class="exp-date">Jan 2022 — Aug 2023</span>
       </div>
-      <!-- footer --> 
-      <div class="footer">
-         <div class="container">
-            <p>© 2023 All rights reserved | Design by <a href="#">Kaushal Dhakal</a></p>
-         </div>
+      <div class="exp-company">General Technology Pvt Ltd</div>
+      <ul class="exp-bullets">
+        <li>Converted wireframes into optimised React UI using custom hooks and React Query.</li>
+        <li>Developed and integrated Node.js APIs with Socket.io real-time capabilities.</li>
+        <li>Mentored interns and contributed engineering best practices across the team.</li>
+      </ul>
+      <div class="exp-tags">
+        <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">React Query</span><span class="tag">Socket.io</span>
       </div>
-      <!-- //footer --> <!-- Bootstrap core JavaScript ================================================== --> <!-- Placed at the end of the document so the pages load faster --> <script src="js/bootstrap.js"></script> 
-   </body>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="exp-header">
+        <span class="exp-role">Associate Software Engineer</span>
+        <span class="exp-date">Nov 2020 — Dec 2021</span>
+      </div>
+      <div class="exp-company">Ansu Technology</div>
+      <ul class="exp-bullets">
+        <li>Implemented Redux for state management in production React applications.</li>
+        <li>Converted UI/UX designs into pixel-perfect implementations.</li>
+        <li>Refactored frontend and backend code for measurable performance improvements.</li>
+      </ul>
+      <div class="exp-tags">
+        <span class="tag">React</span><span class="tag">Redux</span><span class="tag">Node.js</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="section-label">// 03</div>
+  <h2>Education</h2>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-degree">Master's in Computational Science</div>
+      <div class="edu-school">Laurentian University · Ontario, Canada</div>
+      <span class="edu-badge">In progress</span>
+    </div>
+    <div class="edu-card">
+      <div class="edu-degree">Bachelor of Computer Engineering</div>
+      <div class="edu-school">Kathmandu University · Dhulikhel, Nepal</div>
+      <span class="edu-badge">Completed</span>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-label">// 04</div>
+  <h2>Get in touch</h2>
+  <div class="contact-card">
+    <div style="font-size:1.3rem; font-weight:600; color: var(--text);">Let's build something together</div>
+    <p>Open to full-stack engineering roles, freelance projects, and technical collaborations. Drop a message and I'll get back to you.</p>
+    <div class="contact-links">
+      <a href="mailto:kaushaldhakal40@gmail.com" class="contact-link">
+        <svg class="contact-icon" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+        kaushaldhakal40@gmail.com
+      </a>
+      <a href="tel:+12493777447" class="contact-link">
+        <svg class="contact-icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a2 2 0 012-2.18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11l-1.27 1.27a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        +1 249 377 7447
+      </a>
+      <a href="https://www.linkedin.com/in/kaushal-dhakal-53b067239/" target="_blank" class="contact-link">
+        <svg class="contact-icon" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>Built with care · Kaushal Dhakal © 2025 · Sudbury, Ontario</span>
+</footer>
+
+<script>
+const phrases = [
+  'React & Next.js Engineer',
+  'Microfrontend Architect',
+  'Node.js & NestJS Developer',
+  'Cloud-Native Builder',
+  'MSc Computational Science'
+];
+let pi = 0, ci = 0, deleting = false;
+const el = document.getElementById('typed');
+
+function tick() {
+  const phrase = phrases[pi];
+  if (!deleting) {
+    el.textContent = phrase.slice(0, ci + 1);
+    ci++;
+    if (ci === phrase.length) {
+      deleting = true;
+      setTimeout(tick, 1800);
+      return;
+    }
+  } else {
+    el.textContent = phrase.slice(0, ci - 1);
+    ci--;
+    if (ci === 0) {
+      deleting = false;
+      pi = (pi + 1) % phrases.length;
+    }
+  }
+  setTimeout(tick, deleting ? 45 : 75);
+}
+tick();
+</script>
+
+</body>
 </html>
